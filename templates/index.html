@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--index html--->
+{%extends "base.html"  %}
+{% load static %} 
+
+<head>
+    <title>渐变色首页内容</title>
+    <style>
+    /* 基础样式重置 */
+    body {
+        margin: 20px;
+        background-color: #f0f0f0;
+    }
+
+    /* 文字渐变动画 */
+    .gradient-text {
+        background: linear-gradient(90deg, orangered,darkgoldenrod,deeppink,darkorange,darkkhaki);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradientShift 5s ease infinite;
+    }
+
+    /* 渐变位移动画 */
+    @keyframes gradientShift {
+        0% { background-position: 0 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0 50%; }
+    }
+
+    /* 渐变旋转动画 */
+    @keyframes gradientRotate {
+        0% { background-position: 0 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0 50%; }
+    }
+</style>
+</head>
+
+
+{% block title %}
+	技术博客
+{% endblock %}
+
+{% block head-message %}
+	<h3 class="gradient-text" style="font-family: 'JetBrains Mono';font-size: 20pt;text-align: right;margin-right: 30px">灰色的贝雷帽</h3>
+{% endblock %}
+
+
+{% block content %}
+{#	{% for post in posts %}#}
+{#        <p style="font-family: 'JetBrains Mono';font-size: 14pt;font-weight: bold">#}
+{#        <a href="/post/{{ post.slug }}">{{ post.title }}</a>#}
+{#        </p>#}
+{#    {% endfor %}#}
+    {%  if posts.exists %}
+        {% with first=posts.first %}
+            <div class="gradient-text" style="font-family: 'JetBrains Mono';font-size: 15pt;font-weight: bold;text-align: right">
+                <br>
+                {{ first.body|linebreaks }}
+            </div>
+        {% endwith %}
+    {% endif %}
+{% endblock %}

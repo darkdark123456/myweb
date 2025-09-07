@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>渐变色动画</title>
+    <style>
+    /* 基础样式重置 */
+    body {
+        margin: 20px;
+        background-color: #f0f0f0;
+    }
+
+    /* 文字渐变动画 */
+    .gradient-text {
+        background: linear-gradient(90deg, lightskyblue, mediumorchid, lightskyblue,olivedrab,deeppink);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradientShift 5s ease infinite;
+    }
+
+    /* 图片渐变边框动画 */
+    .gradient-img-container {
+        display: inline-block;
+        padding: 4px;
+        border-radius: 8px;
+        background: linear-gradient(45deg, olivedrab, mediumorchid, lightgreen,deeppink);
+        background-size: 300% 300%;
+        animation: gradientRotate 6s ease infinite;
+    }
+
+    /* 渐变位移动画 */
+    @keyframes gradientShift {
+        0% { background-position: 0 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0 50%; }
+    }
+
+    /* 渐变旋转动画 */
+    @keyframes gradientRotate {
+        0% { background-position: 0 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0 50%; }
+    }
+</style>
+</head>
+
+<body>
+<div style="display: flex;justify-content: space-between;align-items: center">
+        <h3 class="gradient-img-container" style="text-align: left;"> <img src="{% static 'images/icon.png' %}" alt="" width="80"></h3>
+        <div style="text-align: right">
+            <h1 class="gradient-text" style="font-family: 'JetBrains Mono';font-size: 24pt;margin-top: 15pt;">空山新雨后, 天气晚来秋。</h1>
+            <h1 class="gradient-text" style="font-family: 'JetBrains Mono';font-size: 24pt;">明月松间照, 清泉石上流。</h1>
+        </div>
+</div>
+
+</body>
+</html>
