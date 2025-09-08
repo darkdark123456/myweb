@@ -1,0 +1,5 @@
+# 忽略settings.py文件
+settings.py
+
+# 忽略所有.txt文件
+*.txt
