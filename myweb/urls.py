@@ -23,6 +23,9 @@ urlpatterns = [
     path('', HomePageView.homepage),
     path('post/<slug:slug>/', HomePageView.showpost),
     path('admin/', admin.site.urls),
-    path('mysite/', TestView.test_view, name="test_page")
+    path('mysite/', TestView.test_view, name="test_page"),
+    path('mysite/nd21', TestView.test2_view, name="nd21page"),
+    path('mysite/nd23', TestView.show_nd23_view, name="nd23page")
+
 
 ]
